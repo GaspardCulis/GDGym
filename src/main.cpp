@@ -1,6 +1,6 @@
 #include <Geode/Geode.hpp>
 #include <Geode/modify/MenuLayer.hpp>
-#include <iostream>
+#include "python_ipc.hpp"
 
 /**
  * Brings cocos2d and all Geode namespaces
@@ -26,7 +26,12 @@ class $modify(MenuLayer){
 	 * would not place a hook!
 	 */
 	void onMoreGames(CCObject *){
-		FLAlertLayer::create("Geode", "Hello from my custom mod!", "OK")->show();
+		/**
+		 * This is the hook's body. We can do
+		 * whatever we want here, but we'll
+		 * just call our Python function.
+		 */
+		PythonIPC::hello();
 }
 }
 ;

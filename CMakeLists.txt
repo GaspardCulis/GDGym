@@ -8,11 +8,19 @@ project(GDGym VERSION 1.0.0)
 # to recursively add all source files 
 # under src/ 
 file(GLOB SOURCES
-	src/*.cpp
+    src/*.cpp
+)
+
+# Add the include directory
+include_directories(include)
+
+# Add the header files to the sources
+file(GLOB HEADERS
+    include/*.hpp
 )
 
 # Set up the mod binary
-add_library(${PROJECT_NAME} SHARED ${SOURCES})
+add_library(${PROJECT_NAME} SHARED ${SOURCES} ${HEADERS})
 
 if (NOT DEFINED ENV{GEODE_SDK})
     message(FATAL_ERROR "Unable to find Geode SDK! Please define GEODE_SDK environment variable to point to Geode")
