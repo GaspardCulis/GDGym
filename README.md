@@ -1,3 +1,3 @@
 # GDGym
 
-This is where she makes a mod.
+This is where he makes a mod.
